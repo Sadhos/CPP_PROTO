@@ -3,38 +3,42 @@
 #include <stdio.h>
 
 // Structure of the list
-struct link {
+struct link
+{
 	int info;
-	struct link* next;
+	struct link *next;
 };
 
 // Empty List
-struct link* start = NULL;
+struct link *start = NULL;
 
 // Function to create a header linked list
-struct link* create_header_list(int data)
+struct link *create_header_list(int data)
 {
 
 	// Create a new node
 	struct link *new_node, *node;
-	new_node = (struct link*)
+	new_node = (struct link *)
 		malloc(sizeof(struct link));
 	new_node->info = data;
 	new_node->next = NULL;
 
 	// If it is the first node
-	if (start == NULL) {
+	if (start == NULL)
+	{
 
 		// Initialize the start
-		start = (struct link*)
+		start = (struct link *)
 			malloc(sizeof(struct link));
 		start->next = new_node;
 	}
-	else {
+	else
+	{
 
 		// Insert the node in the end
 		node = start;
-		while (node->next != NULL) {
+		while (node->next != NULL)
+		{
 			node = node->next;
 		}
 		node->next = new_node;
@@ -44,12 +48,13 @@ struct link* create_header_list(int data)
 
 // Function to display the
 // header linked list
-struct link* display()
+struct link *display()
 {
-	struct link* node;
+	struct link *node;
 	node = start;
 	node = node->next;
-	while (node != NULL) {
+	while (node != NULL)
+	{
 		printf("%d ", node->info);
 		node = node->next;
 	}
